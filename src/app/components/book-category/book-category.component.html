@@ -1,0 +1,21 @@
+<div class="list-group" *ngFor="let category of category">
+  <!--
+    <a
+      routerLink="/category/{{category.id}}}" routerLinkActive="bg-primary text-white font-weight-bold"
+      href="#" class="list-group-item">{{category.categoryName}}</a>
+  -->
+
+
+  <a
+    [routerLink]="'/category/'+category.id" routerLinkActive="bg-primary text-white font-weight-bold"
+    href="#" class="list-group-item">{{category.categoryName}}</a>
+
+
+  <!-- <a
+     routerLink="/category/2" routerLinkActive="bg-primary text-white font-weight-bold"
+     href="#" class="list-group-item">Android Development</a>
+
+   <a
+     routerLink="/category/3" routerLinkActive="bg-primary text-white font-weight-bold"
+     href="#" class="list-group-item">DataBase</a>-->
+</div>

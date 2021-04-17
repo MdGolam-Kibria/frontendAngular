@@ -1,0 +1,44 @@
+<div class="row">
+
+  <div class="col-lg-3">
+
+    <app-book-category></app-book-category>
+
+  </div>
+  <!-- /.col-lg-3 -->
+
+  <div class="col-lg-9">
+    <!--        add book list component to view-->
+    <div class="row">
+      <!--  card-->
+      <div class="col-lg-4 col-md-6 mb-4  cardStyle" *ngFor="let book of books" id="data">
+        <div class="card <!--h-100-->">
+          <a href="#"><img class="card-img-top cartImg" src="{{book.imageUrl}}" alt=""></a>
+          <div class="card-body">
+            <h4 class="card-title font-italic">
+              <a href="#">{{book.name}}</a>
+            </h4>
+            <h5>$24.99</h5>
+            <!--        here text-truncate means if text over the div then ot show dot.dot-->
+            <p class="card-text text-truncate">{{book.description}}</p>
+            <button class="bg-primary shadow-none alert-danger">Add To Cart</button>
+          </div>
+          <!--      <div class="card-footer">-->
+          <!--        <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>-->
+          <!--      </div>-->
+        </div>
+      </div>
+
+      <!--  card end-->
+
+
+    </div>
+
+
+    <!-- /.row -->
+
+  </div>
+  <!-- /.col-lg-9 -->
+
+</div>
+

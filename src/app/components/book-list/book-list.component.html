@@ -1,0 +1,32 @@
+<table border="1" class="table">
+  <thead>
+  <tr>
+    <th>Icon</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th>unitPrice</th>
+    <th>imageUrl</th>
+    <th>active</th>
+    <th>unitsInStock</th>
+    <th>createdOn</th>
+    <th>updatedOn</th>
+    <th>categoryName</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let book of books" id="data">
+    <td>
+      <img src="{{book.imageUrl}}" id="image">
+    </td>
+    <td>{{book.name}}</td>
+    <td>{{book.description}}</td>
+    <td>{{book.unitPrice | currency:'INR'}}</td>
+    <td>{{book.imageUrl}}</td>
+    <td>{{book.active}}</td>
+    <td>{{book.unitsInStock}}</td>
+    <td>{{book.createdOn}}</td>
+    <td>{{book.updatedOn}}</td>
+    <td>{{book.bookCategory.categoryName}}</td>
+  </tr>
+  </tbody>
+</table>
