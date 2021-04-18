@@ -14,6 +14,7 @@ export class BookService {
   private bookByCatId = 'http://localhost:8083/ECommerce/book/';
   private allCategory = 'http://localhost:8083/ECommerce/allCategory';
   private searchBookByName = 'http://localhost:8083/ECommerce/getBookByName/';
+  private getBookById = 'http://localhost:8083/ECommerce/getBookById/';
 
   constructor(private httpClient: HttpClient) {
   }
@@ -39,11 +40,23 @@ export class BookService {
       );
   }
 
+  /**
+   * For Search books by name
+   */
   getBooksByName(name: string): Observable<Book[]> {
     return this.httpClient.get<Book[]>(this.searchBookByName + name)
       .pipe(
         map(response => response)
       );
+  }
+
+  /**
+   *  for get single book by id
+   */
+  getSingleBookById(id: number): Observable<Book> {
+    return this.httpClient.get<Book>(this.getBookById + id).pipe(
+      map(response => response)
+    );
   }
 
 

@@ -78,9 +78,22 @@ export class BookListComponent implements OnInit {
   handleSearchBooks() {
     const currentSearchKey = this.activatedRoute.snapshot.paramMap.get('keyword');
     console.log('currentSearchKey' + currentSearchKey);
+
+    if (currentSearchKey === '') {
+      this.bookService.getbooks().subscribe(
+        // data => this.books = data.books
+        data => {
+          this.books = data;
+          console.log('ok' + this.books);
+        }
+      );
+      return;
+    }
+
     this.bookService.getBooksByName(currentSearchKey).subscribe(value => {
       this.books = value;
     });
+
   }
 
 

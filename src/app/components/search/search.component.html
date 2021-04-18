@@ -3,6 +3,7 @@
     <div class="col-md-8">
       <!--        after write some value then search-->
       <input
+        (keyup)="searchBooksByName(searchKyy.value)"
         (keyup.enter)="searchBooksByName(searchKyy.value)"
         type="text" #searchKyy class="form-control" placeholder="Search By Name">
     </div>

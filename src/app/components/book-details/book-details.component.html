@@ -1,0 +1,46 @@
+<div class="row">
+
+  <div class="col-lg-3">
+
+    <app-book-category></app-book-category>
+
+  </div>
+  <!-- /.col-lg-3 -->
+
+  <div class="col-lg-9">
+    <!--        add book list component to view-->
+    <div class="row">
+      <div class="col-12 col-md-4">
+        <!--To display Image-->
+        <div class="img-thumbnail">
+
+          <img src="assets/books/ios.png">
+        </div>
+      </div>
+      <div class="col-12 col-md-8">
+        <!--        To Display image Details-->
+        <h3 class="font-weight-normal">{{book.name}}</h3>
+        <hr/>
+        <p class="descriptionText">{{book.description}}</p>
+        <hr/>
+        <h4>Price: <strong>&#x24; 200/-</strong></h4>
+        <hr/>
+        <h6 class="font-weight-light">Available Quantity: {{book.quantity}}/-</h6>
+        <hr/>
+        <a class="btn btn-success" href="#">
+          <i class="fas fa-angle-left"></i>
+          Back
+        </a>
+        &nbsp;
+        <a routerLink="/books" class="btn btn-primary">
+          <i class="fas fa-cart-arrow-down"></i>
+          Add To Cart
+        </a>
+      </div>
+    </div>
+
+  </div>
+  <!-- /.col-lg-9 -->
+
+</div>
+

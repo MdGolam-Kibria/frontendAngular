@@ -13,10 +13,10 @@
       <!--  card-->
       <div class="col-lg-4 col-md-6 mb-4  cardStyle" *ngFor="let book of books" id="data">
         <div class="card <!--h-100-->">
-          <a href="#"><img class="card-img-top cartImg" src="{{book.imageUrl}}" alt=""></a>
+          <a routerLink="/books/{{book.id}}}" href="#"><img class="card-img-top cartImg" src="{{book.imageUrl}}" alt=""></a>
           <div class="card-body">
             <h4 class="card-title font-italic">
-              <a href="#">{{book.name}}</a>
+              <a routerLink="/books/{{book.id}}}" href="#">{{book.name}}</a>
             </h4>
             <h5>$24.99</h5>
             <!--        here text-truncate means if text over the div then ot show dot.dot-->
@@ -35,6 +35,10 @@
     </div>
 
 
+    <!--Here ? symbol check if the book is notNull or undefined then it will check .length otherwise not-->
+    <div *ngIf="books?.length==0" class="col-md-12 alert alert-warning mt-3">
+      <h1>No Data Found</h1>
+    </div>
     <!-- /.row -->
 
   </div>

@@ -17,9 +17,10 @@ export class SearchComponent implements OnInit {
   }
 
   searchBooksByName(searchKey: string) {
-    this.bookService.getBooksByName(searchKey).subscribe(value => {
-      /*//this "search" key must be match with app.module.ts seach route*/
-      this.router.navigateByUrl('/search/' + searchKey);
-    });
+    this.router.navigateByUrl('/search/' + searchKey);
+    // this.bookService.getBooksByName(searchKey).subscribe(value => {
+    //   /*//this "search" key must be match with app.module.ts seach route*/
+    //   this.router.navigateByUrl('/search/' + searchKey);
+    // });
   }
 }
