@@ -6,3 +6,12 @@
   -webkit-line-clamp: 2; /* number of lines to show */
   -webkit-box-orient: vertical;
 }
+
+.bookSizeTitle {
+  font-family: "Roboto Mono";
+  color: #8c4500;
+  text-shadow: #3a8c00;
+  text-align: start;
+  font-size: 20px;
+  margin: revert;
+}

@@ -16,6 +16,19 @@
 
           <img src="assets/books/ios.png">
         </div>
+        <hr/>
+        <p class="bookSizeTitle">Book Size</p>
+        <div class="row">
+          <div *ngFor="let size of size">
+            <p class="col-sm img-thumbnail">{{size}}</p>
+          </div>
+        </div>
+
+        <!-- <div *ngFor="let size of size">
+           &lt;!&ndash;          &nbsp;&ndash;&gt;
+             <p class="img-thumbnail row  mt-20">{{size}}</p>
+
+         </div>-->
       </div>
       <div class="col-12 col-md-8">
         <!--        To Display image Details-->

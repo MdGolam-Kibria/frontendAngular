@@ -11,6 +11,7 @@ import {BookService} from '../../services/book.service';
 export class BookDetailsComponent implements OnInit {
 
   book: Book = new Book();
+  size: string[] = ["A4","A3","A1","A5"];
 
   constructor(
     private activeRoute: ActivatedRoute,
