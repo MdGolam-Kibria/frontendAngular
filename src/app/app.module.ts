@@ -12,6 +12,8 @@ import {BookCategoryComponent} from './components/book-category/book-category.co
 import {SearchComponent} from './components/search/search.component';
 import {BookDetailsComponent} from './components/book-details/book-details.component';
 import {NgxImageZoomModule} from 'ngx-image-zoom';
+import {CartStatusComponent} from './components/cart-status/cart-status.component';
+import {NgxSpinnerModule} from 'ngx-spinner';
 
 /**
  * configure routes here
@@ -34,11 +36,13 @@ const routes: Routes = [
     BookCategoryComponent,
     SearchComponent,
     BookDetailsComponent,
+    CartStatusComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     NgxImageZoomModule,
+    NgxSpinnerModule,//for add loading time progress (Library (Ngx Spinner))
     RouterModule.forRoot(routes)
   ],
   /**

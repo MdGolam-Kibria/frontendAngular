@@ -16,10 +16,10 @@ export class BookCategoryComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getAllCategory();
+    this.getAllCategoryABc();
   }
 
-  getAllCategory() {
+  getAllCategoryABc() {
     this.apiService.getAllCategory().subscribe(
       data => {
         this.category = data;

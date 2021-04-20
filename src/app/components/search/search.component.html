@@ -1,17 +1,13 @@
-<div class="col-md-12">
-  <div class="row">
-    <div class="col-md-8">
-      <!--        after write some value then search-->
-      <input
-        (keyup)="searchBooksByName(searchKyy.value)"
-        (keyup.enter)="searchBooksByName(searchKyy.value)"
-        type="text" #searchKyy class="form-control" placeholder="Search By Name">
-    </div>
-    <div class="col-md-2">
-      <button
-        (click)="searchBooksByName(searchKyy.value)"
-        type="submit" class="btn btn-primary">Search
-      </button>
-    </div>
-  </div>
+<div class="navbar-nav ml-2">
+  <input
+    (keyup)="searchBooksByName(searchKyy.value)"
+    (keyup.enter)="searchBooksByName(searchKyy.value)"
+    type="text" #searchKyy class="form-control" placeholder="Search Books">
+
+
+  <button
+    (click)="searchBooksByName(searchKyy.value)"
+    type="submit" class="btn btn-primary ml-2">Search
+  </button>
+
 </div>

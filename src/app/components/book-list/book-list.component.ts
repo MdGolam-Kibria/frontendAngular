@@ -3,6 +3,9 @@ import {Book} from '../../common/book';
 import {BookService} from '../../services/book.service';
 import {BookCategory} from '../../common/BookCategory';
 import {ActivatedRoute} from '@angular/router';
+import {CartService} from '../../service/cart.service';
+import {CartItem} from '../../common/cart-item';
+import {NgxSpinnerService} from 'ngx-spinner';
 
 @Component({
   selector: 'app-book-list',
@@ -19,7 +22,9 @@ export class BookListComponent implements OnInit {
 
   constructor(
     private  bookService: BookService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private cartService: CartService,
+    private spinner: NgxSpinnerService
   ) {
   }
 
@@ -31,20 +36,19 @@ export class BookListComponent implements OnInit {
   }
 
   bookList() {
-    this.searchMode = this.activatedRoute.snapshot.paramMap.has('keyword');
+     this.searchMode = this.activatedRoute.snapshot.paramMap.has('keyword');
     if (this.searchMode) {/*detect search mode*/
       this.handleSearchBooks();
     } else {
       this.handleListBooks();
     }
-  }
+   }
 
 
   handleListBooks() {
     /**
      * first check actuvated route have any param or not
      */
-
     const haveCategoryId: boolean = this.activatedRoute.snapshot.paramMap.has('id');
 
     if (haveCategoryId) {
@@ -97,4 +101,12 @@ export class BookListComponent implements OnInit {
   }
 
 
+  /**
+   * For Add To Cart Functionality
+   */
+  addToCart(book: Book) {
+    console.log(`TotalPrice   : = ${book.unitPrice}, TotalQuantity: = ${book.quantity}`);
+    const cartItems = new CartItem(book);
+    this.cartService.addToCart(cartItems);
+  }
 }

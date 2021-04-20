@@ -19,8 +19,11 @@
         <hr/>
         <p class="bookSizeTitle">Book Size</p>
         <div class="row">
-          <div *ngFor="let size of size">
-            <p class="col-sm img-thumbnail">{{size}}</p>
+          <div *ngFor="let size of size"><!--set product size to view-->
+            &nbsp;
+            <input type="checkbox" id="vehicle1" name="vehicle1" [value]="size"/>
+            &nbsp;
+            <label>{{size}}</label><br>
           </div>
         </div>
 
@@ -36,7 +39,7 @@
         <hr/>
         <p class="descriptionText">{{book.description}}</p>
         <hr/>
-        <h4>Price: <strong>&#x24; 200/-</strong></h4>
+        <h4>Price: <strong>&#x24; {{book.unitPrice}}/-</strong></h4>
         <hr/>
         <h6 class="font-weight-light">Available Quantity: {{book.quantity}}/-</h6>
         <hr/>
@@ -45,7 +48,7 @@
           Back
         </a>
         &nbsp;
-        <a routerLink="/books" class="btn btn-primary">
+        <a routerLink="/books" class="btn btn-primary" (click)="addToCart(book)">
           <i class="fas fa-cart-arrow-down"></i>
           Add To Cart
         </a>

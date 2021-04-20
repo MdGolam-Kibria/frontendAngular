@@ -1,3 +1,6 @@
+<ngx-spinner class="ball-spin-clockwise" size="default" bdColor="rgba(51,51,51,0.8)">
+  <p>Please Wait</p>
+</ngx-spinner>
 <div class="row">
 
   <div class="col-lg-3">
@@ -18,10 +21,10 @@
             <h4 class="card-title font-italic">
               <a routerLink="/books/{{book.id}}}" href="#">{{book.name}}</a>
             </h4>
-            <h5>$24.99</h5>
+            <h5>$ {{book.unitPrice}}</h5>
             <!--        here text-truncate means if text over the div then ot show dot.dot-->
             <p class="card-text text-truncate">{{book.description}}</p>
-            <button class="bg-primary shadow-none alert-danger">Add To Cart</button>
+            <button class="bg-primary shadow-none alert-danger" (click)="addToCart(book)">Add To Cart</button>
           </div>
           <!--      <div class="card-footer">-->
           <!--        <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>-->
