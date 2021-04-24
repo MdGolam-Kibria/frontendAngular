@@ -1,0 +1,88 @@
+<div class="row">
+  <div class="col-md-3">
+    <!--  add Category Components  Category Components-->
+    <app-book-category></app-book-category>
+  </div>
+
+  <div class="col-md-8 ml-10">
+
+    <div class="row">
+      <div class="col-md-12">
+        <!--        check have any items or not -->
+        <div *ngIf="cartItems.length>0">
+          <table class="table table-bordered">
+            <!--          table header-->
+            <thead>
+            <tr>
+              <td width="20%">Book Image</td>
+              <td width="50%">Book Details</td>
+              <td width="30%"></td>
+              <!--            <td></td>-->
+              <!--            <td></td>-->
+            </tr>
+            </thead>
+            <!--          Table Body-->
+            <tbody>
+            <tr *ngFor="let cartItem of cartItems">
+              <td>
+                <!--              display image using property binding-->
+                <img [src]="cartItem.imageUrl" class="img-responsive" width="150" height="200">
+              </td>
+              <td>
+                <p>{{cartItem.name}}</p>
+                <p>{{cartItem.unitPrice | currency:'TK'}}</p>
+              </td>
+              <td>
+                <div class="row">
+
+                  <div class="col-md-12">
+                    <p>Quantity :
+                      <span (click)="removeItem(cartItem)" class="float-right customPointer text-danger">
+                      <i class="fas fa-trash"></i>
+                    </span>
+                    </p>
+                  </div>
+
+
+                  <!--                  PLUS MINUS Section-->
+                  <div class="col-md-4">
+                    <button (click)="incrementQuantity(cartItem)" class="btn btn-primary btn-sm float-left">
+                      <i class="fas fa-plus"></i>
+                    </button>
+                  </div>
+                  <div class="col-md-4 text-center">
+                    {{cartItem.quantity}}
+                  </div>
+                  <div class="col-md-4">
+                    <button (click)="decrementsQuantity(cartItem)" class="btn btn-primary btn-sm float-right">
+                      <i class="fas fa-minus"></i>
+                    </button>
+                  </div>
+
+
+                  <div class="col-md-12 mt-2">
+                    <!--                  -->
+                    <p>SubTotal: {{cartItem.quantity * cartItem.unitPrice | currency:'TK'}}</p>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2"></td>
+              <td class="font-weight-bold">
+                <p>{{totalQuantity}}</p>
+                <p>Shipping : Free</p>
+                <p>Total Price {{totalPrice | currency:' TK'}}</p>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <!--        check have any items  if item length is 0 then it will show a no data found alert-->
+        <div *ngIf="cartItems.length==0" class="alert alert-warning col-md-12" type="alert">
+          Your Cart Is Empty
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

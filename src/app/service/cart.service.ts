@@ -24,6 +24,8 @@ export class CartService {
     }
     if (alreadyExistsInCart) {
       //we just increment the item/book quantity
+      existingCartItem.quantity += 1;
+      this.calculateTotalPrice();
       return;
     }
     //add current item to the cart items array
@@ -32,7 +34,7 @@ export class CartService {
     this.calculateTotalPrice();
   }
 
-  private calculateTotalPrice() {
+  public calculateTotalPrice() {
     let totalPriceValue: number = 0;
     let totalQuantityValue: number = 0;
     /**
@@ -48,6 +50,20 @@ export class CartService {
      */
     this.totalPrice.next(totalPriceValue);
     this.totalQuantity.next(totalQuantityValue);
+
+  }
+
+  decrementsQuantity(cartItems: CartItem) {
+    cartItems.quantity--;
+    this.calculateTotalPrice();
+  }
+
+  removeItem(cartItems: CartItem) {
+    const itemIndexNumber = this.cartItems.findIndex(temItem => temItem.id === cartItems.id);//return index number based on conditions
+    if (itemIndexNumber > -1) {
+      this.cartItems.splice(itemIndexNumber, 1);
+      this.calculateTotalPrice();
+    }
 
   }
 }
